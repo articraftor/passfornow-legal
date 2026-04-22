@@ -16,13 +16,24 @@ lets you include context without leaving the app.
 
 ### How do I cancel my subscription?
 
-On your iPhone: **Settings** → tap your name at the top →
-**Subscriptions** → **Pass For Now** → **Cancel Subscription**.
+Two routes. Both end at the same Apple screen where the cancel
+actually happens.
+
+**From inside the app (so we know what to fix):**
+
+1. Open Pass For Now → **Settings**.
+2. Tap **Manage subscription**.
+3. Pick a reason on the "What's making you leave?" screen, then
+   tap **Manage in App Store**. iOS opens your Apple subscriptions
+   list, where you confirm the cancellation.
+
+**Directly through Apple:**
+
+iPhone **Settings** → tap your name at the top → **Subscriptions**
+→ **Pass For Now** → **Cancel Subscription**.
+
 Cancelling takes effect at the end of your current billing period;
 you keep premium access until then.
-
-You can also reach this screen from inside the app:
-**Settings → Manage subscription**.
 
 ### How do I restore a purchase?
 
