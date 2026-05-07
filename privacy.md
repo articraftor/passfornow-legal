@@ -1,6 +1,6 @@
 # Privacy Policy for Pass For Now
 
-_Last updated: 2026-04-20_
+_Last updated: 2026-05-06_
 
 Pass For Now ("the app", "we", "us") is published by Articraftor LLC.
 This policy describes what information the app
@@ -14,13 +14,16 @@ specific, email us at support@articraftor.com — a human will reply.
 
 ## Summary (the short version)
 
-- Almost everything Pass For Now stores about you stays on your
-  device.
-- We don't use analytics. We don't track you. We don't use
-  advertising identifiers.
-- Two third-party services are involved only when you use specific
-  features: **RevenueCat** (for subscription state) and **Web3Forms**
-  (for the in-app feedback form).
+- Everything personal you create — your onboarding answers and your
+  saves — stays on your device. None of it is transmitted.
+- We use **anonymous, aggregate usage analytics** (PostHog) to see
+  which onboarding steps people reach. No identifiers tied to you,
+  no IP addresses, no content you write. We do not use advertising
+  identifiers, and we do not track you across apps or websites.
+- Three third-party services are involved only when you use specific
+  features: **RevenueCat** (for subscription state), **Web3Forms**
+  (for the in-app feedback form), and **PostHog** (for anonymous
+  product analytics).
 - We do not sell, rent, or share your information with anyone for
   advertising or marketing.
 
@@ -48,8 +51,12 @@ stored in
 [`expo-secure-store`](https://docs.expo.dev/versions/latest/sdk/securestore/),
 which is backed by the iOS Keychain.
 
-**We do not receive or read any of this data.** It never leaves your
-phone unless you explicitly send a feedback message (see below).
+**We do not receive or read any of this data.** Your onboarding
+answers, your saves, and your app preferences never leave your
+phone unless you explicitly send a feedback message that includes
+them (see below). The anonymous usage events we collect via PostHog
+record only *which screens were reached*, not the content of your
+answers or saves.
 
 If you uninstall Pass For Now, iOS deletes all of this data with the
 app.
@@ -58,9 +65,10 @@ app.
 
 ## Information that leaves your device
 
-There are exactly two situations in which any information leaves
-your phone. Both are opt-in in the sense that they only happen if
-you take a specific action.
+There are three situations in which any information leaves your
+phone. Two of them only happen if you take a specific action
+(subscribing, sending feedback). One happens automatically while
+the app is running (anonymous usage analytics).
 
 ### 1. Subscription state — RevenueCat
 
@@ -94,7 +102,38 @@ payment itself and never gives us that data.
 RevenueCat's own privacy practices are at
 https://www.revenuecat.com/privacy/.
 
-### 2. Feedback messages — Web3Forms
+### 2. Anonymous usage analytics — PostHog
+
+We use [PostHog](https://posthog.com/) to record **anonymous,
+aggregate** product events — for example, "an onboarding step was
+reached" or "the paywall was viewed." We use this data to find
+where people get stuck in onboarding so we can improve it.
+
+What we send to PostHog:
+
+- **Event names** describing what kind of action happened, like
+  `onboarding_step_viewed` or `paywall_viewed`. Event names contain
+  no information you typed.
+- **An anonymous random ID** that the PostHog SDK generates on your
+  device the first time the app launches. It is not derived from
+  your Apple ID, your email, or any other personal information, and
+  it is not shared with any other app or service. Uninstalling the
+  app removes the ID; reinstalling generates a new one.
+- **Basic device metadata** — OS version, app version.
+
+What we do **not** send to PostHog:
+
+- Your onboarding answers (cave times, triggers, dollar amounts,
+  feelings, goals).
+- The content of your saves (amounts, categories, notes, timestamps).
+- Your IP address — we configure PostHog to drop it before storage.
+- The Apple advertising identifier (IDFA) or any cross-app tracking
+  identifier.
+
+PostHog's own privacy practices are at
+https://posthog.com/privacy.
+
+### 3. Feedback messages — Web3Forms
 
 Pass For Now forwards messages to our support inbox in two
 situations, both using [Web3Forms](https://web3forms.com/) — a
@@ -147,10 +186,9 @@ Daily reminder** in the app, or from iOS Settings → Notifications
 
 ## What we do NOT do
 
-- We do **not** use analytics services — no Google Analytics, no
-  Mixpanel, no Amplitude, no PostHog, no Firebase Analytics, no
-  in-house analytics pipeline. The app has an internal logger that
-  writes to the on-device console only; we never see the output.
+- Beyond the anonymous PostHog analytics described above, we do
+  **not** use other analytics services (Google Analytics, Mixpanel,
+  Amplitude, Firebase Analytics, in-house pipelines).
 - We do **not** use the Apple advertising identifier (IDFA) and do
   not request App Tracking Transparency permission.
 - We do **not** display third-party ads.
